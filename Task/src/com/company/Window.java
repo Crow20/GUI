@@ -42,7 +42,7 @@ public class Window extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         x = x + velX;
-        repaint();
+        //repaint();
         tm.start();
     }
 
@@ -69,6 +69,8 @@ public class Window extends JFrame implements ActionListener {
                 e.printStackTrace();
             }
             System.out.println("Я ПРОСНУЛСЯ НАХРЕН!!!111");
+            repaint();
+            square.draw();
         }
     }
 }
