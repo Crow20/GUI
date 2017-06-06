@@ -13,6 +13,7 @@ public class Window extends JFrame implements ActionListener {
     Timer tm = new Timer(400, this);
     int x = 0, velX = 2;
     Square square = null;
+    static final Window window = new Window();
 
     Window() {
         super("My First Window"); //Заголовок окна
@@ -58,7 +59,7 @@ public class Window extends JFrame implements ActionListener {
             g.setColor(Color.black);
             g.drawLine(x, x, -50, 300);
 
-            square.draw();
+//            square.draw();
         }
 
         @Override
@@ -69,8 +70,8 @@ public class Window extends JFrame implements ActionListener {
                 e.printStackTrace();
             }
             System.out.println("Я ПРОСНУЛСЯ НАХРЕН!!!111");
-            repaint();
             square.draw();
+            window.repaint();
         }
     }
 }
