@@ -8,14 +8,15 @@ import java.awt.event.ActionListener;
 /**
  * Created by Crow on 06.06.2017.
  */
-public class Window extends JFrame implements ActionListener{
+public class Window extends JFrame implements ActionListener {
 
-    Timer tm=new Timer(5,this);
-    int x=0, velX=2;
+    Timer tm = new Timer(5, this);
+    int x = 0, velX = 2;
+    Square square = null;
 
     Window() {
         super("My First Window"); //Заголовок окна
-        JPanel panel = new JPanel();
+        JPanel panel = new MyPanel();
         panel.setLayout(new FlowLayout());
         setBounds(100, 100, 600, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -31,24 +32,31 @@ public class Window extends JFrame implements ActionListener{
         setContentPane(panel);
         setLocationRelativeTo(null);
         setVisible(true);
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        x=x+velX;
+        x = x + velX;
         repaint();
         tm.start();
     }
 
-    @Override
-    public void paint(Graphics g) {
-        super.paint(g);
-        Graphics2D gr2d = (Graphics2D) g;
-        gr2d.setBackground(Color.black);
-        gr2d.setPaint(Color.black);
-            gr2d.drawLine(x, x, -50, 300);
+    class MyPanel extends JPanel {
+        public MyPanel() {
+            super();
+        }
 
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+
+            g.setColor(Color.black);
+            g.drawLine(x, x, -50, 300);
+
+            if (square == null)
+                square = new Square(g);
+            square.draw();
+        }
     }
-
-
 }
