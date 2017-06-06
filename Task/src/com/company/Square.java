@@ -15,6 +15,7 @@ public class Square extends Shape {
         System.out.println("Мы реальновызвались");
         p.getGraphics().setColor(Color.MAGENTA);
         p.getGraphics().fillRect(xo, 20, 100, 100);
+
         xo += 1;
         System.out.println(xo);
     }

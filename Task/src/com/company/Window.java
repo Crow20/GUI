@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
  */
 public class Window extends JFrame implements ActionListener {
 
-    Timer tm = new Timer(5, this);
+    Timer tm = new Timer(400, this);
     int x = 0, velX = 2;
     Square square = null;
 
@@ -24,6 +24,8 @@ public class Window extends JFrame implements ActionListener {
         JButton stopButton = new JButton("Stop!");
         button.addActionListener(this);
         stopButton.addActionListener(e -> {
+            Thread thread = new Thread((Runnable) panel, "Анимация");
+            thread.start();
             System.out.println("ПИПИСЬКА");
             System.out.println("ТУТ ЕСТЬ");
         });
@@ -44,7 +46,7 @@ public class Window extends JFrame implements ActionListener {
         tm.start();
     }
 
-    class MyPanel extends JPanel {
+    class MyPanel extends JPanel implements Runnable {
         public MyPanel() {
             super();
         }
@@ -56,8 +58,17 @@ public class Window extends JFrame implements ActionListener {
             g.setColor(Color.black);
             g.drawLine(x, x, -50, 300);
 
-
             square.draw();
+        }
+
+        @Override
+        public void run() {
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("Я ПРОСНУЛСЯ НАХРЕН!!!111");
         }
     }
 }
