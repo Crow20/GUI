@@ -46,7 +46,9 @@ public class Window extends JFrame implements ActionListener{
         Graphics2D gr2d = (Graphics2D) g;
         gr2d.setBackground(Color.black);
         gr2d.setPaint(Color.black);
-            gr2d.drawLine(x, 50, -50, 300);
+            gr2d.drawLine(x, x, -50, 300);
 
     }
+
+
 }

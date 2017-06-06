@@ -19,4 +19,5 @@ public class Main {
         }
         javax.swing.SwingUtilities.invokeLater(Window::new);
     }
+
 }
