@@ -19,9 +19,18 @@ public class Window extends JFrame implements ActionListener{
         panel.setLayout(new FlowLayout());
         setBounds(100, 100, 600, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JButton button=new JButton("Start!");
+        JButton button = new JButton("Start!");
+        JButton stopButton = new JButton("Stop!");
         button.addActionListener(this);
+        stopButton.addActionListener(e -> {
+            System.out.println("ПИПИСЬКА");
+            System.out.println("ТУТ ЕСТЬ");
+        });
         panel.add(button);
+        panel.add(stopButton);
+        setContentPane(panel);
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
 
     @Override
@@ -33,6 +42,7 @@ public class Window extends JFrame implements ActionListener{
 
     @Override
     public void paint(Graphics g) {
+        super.paint(g);
         Graphics2D gr2d = (Graphics2D) g;
         gr2d.setBackground(Color.black);
         gr2d.setPaint(Color.black);
