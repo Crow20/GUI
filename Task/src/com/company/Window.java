@@ -32,6 +32,8 @@ public class Window extends JFrame implements ActionListener {
         setContentPane(panel);
         setLocationRelativeTo(null);
         setVisible(true);
+        if (square == null)
+            square = new Square(panel);
 
     }
 
@@ -54,8 +56,7 @@ public class Window extends JFrame implements ActionListener {
             g.setColor(Color.black);
             g.drawLine(x, x, -50, 300);
 
-            if (square == null)
-                square = new Square(g);
+
             square.draw();
         }
     }

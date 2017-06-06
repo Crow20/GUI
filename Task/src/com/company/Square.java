@@ -1,20 +1,21 @@
 package com.company;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class Square extends Shape {
     private static int xo = 20;
 
-    public Square(Graphics graphic) {
-        super(graphic);
+    public Square(JPanel p) {
+        super(p);
     }
 
     @Override
     public void draw() {
         System.out.println("Мы реальновызвались");
-        graphic.setColor(Color.MAGENTA);
-        graphic.fillRect(xo, 20, 100, 100);
-        xo += 20;
+        p.getGraphics().setColor(Color.MAGENTA);
+        p.getGraphics().fillRect(xo, 20, 100, 100);
+        xo += 1;
         System.out.println(xo);
     }
 }

@@ -14,8 +14,8 @@ public abstract class Shape {
     Graphics graphic;
     JPanel p;
 
-    public Shape(Graphics graphic) {
-        this.graphic = graphic;
+    public Shape(JPanel p) {
+        this.p = p;
     }
 
     public void draw() {
